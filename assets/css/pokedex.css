@@ -1,3 +1,57 @@
+body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    font-family: 'Segoe UI', sans-serif;
+
+    
+    background:
+        radial-gradient(circle at top left, #ff4d4d 0%, #d62828 35%, transparent 35%),
+        radial-gradient(circle at bottom right, #3a86ff 0%, #1d3557 35%, transparent 35%),
+        linear-gradient(135deg, #111827, #1f2937);
+
+    background-attachment: fixed;
+    overflow-x: hidden;
+    position: relative;
+}
+
+
+body::before {
+    content: "";
+    position: relative;
+    inset: 0;
+
+    background-image:
+        linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px);
+
+    background-size: 40px 40px;
+
+    pointer-events: none;
+}
+
+
+body::after {
+    content: "";
+    position: fixed;
+    width: 600px;
+    height: 600px;
+
+    top: 50%;
+    left: 50%;
+
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+
+    border: 8px solid rgba(255,255,255,0.08);
+
+    box-shadow:
+        0 0 0 30px rgba(255,255,255,0.03),
+        0 0 0 60px rgba(255,255,255,0.02),
+        0 0 80px rgba(255, 0, 0, 0.25);
+
+    pointer-events: none;
+}
 .pokemons {
     display: grid;
     grid-template-columns: 1fr;
@@ -137,13 +191,69 @@
 }
 
 .pagination button {
-    padding: .25rem .5rem;
-    margin: .25rem 0;
-    font-size: .625rem;
-    color: #fff;
-    background-color: #6c79db;
+    position: relative;
+
+    padding: .9rem 1.4rem;
+
     border: none;
-    border-radius: 1rem;
+    border-radius: 14px;
+
+    background: linear-gradient(135deg, #ef233c, #d90429);
+
+    color: white;
+
+    font-size: .95rem;
+    font-weight: bold;
+    letter-spacing: .5px;
+
+    cursor: pointer;
+
+    overflow: hidden;
+
+    transition:
+        transform .25s ease,
+        filter .25s ease,
+        box-shadow .25s ease;
+
+    box-shadow:
+        0 6px 18px rgba(0,0,0,.35),
+        inset 0 1px 0 rgba(255,255,255,.15);
+}
+
+.pagination button::before {
+    content: "";
+
+    position: absolute;
+
+    top: -50%;
+    left: -120%;
+
+    width: 80px;
+    height: 220%;
+
+    background: rgba(255,255,255,.25);
+
+    transform: rotate(25deg);
+
+    transition: .6s;
+}
+
+.pagination button:hover {
+    transform: translateY(-4px) scale(1.04);
+
+    filter: brightness(1.1);
+
+    box-shadow:
+        0 10px 24px rgba(0,0,0,.45),
+        0 0 18px rgba(255, 70, 70, .45);
+}
+
+.pagination button:hover::before {
+    left: 130%;
+}
+
+.pagination button:active {
+    transform: scale(.96);
 }
 
 @media screen and (min-width: 380px) {
@@ -162,4 +272,13 @@
     .pokemons {
         grid-template-columns: 1fr 1fr 1fr 1fr;
     }
+}
+.pokemon {
+    cursor: pointer;
+    transition: .25s;
+}
+
+.pokemon:hover {
+    transform: scale(1.03);
+    filter: brightness(1.1);
 }

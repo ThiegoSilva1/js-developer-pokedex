@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Detalhes Pokémon</title>
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="./assets/css/details.css">
+</head>
+
+<body>
+
+    <main class="pokedex-detail">
+        <button class="back-button" onclick="goBack()">
+            ← Return
+        </button>
+        <section id="pokemonDetail" class="pokemon-card">
+
+            <div class="left">
+
+                <span id="pokemonNumber" class="number">
+                    #000
+                </span>
+
+                <h1 id="pokemonName" class="name">
+                    Pokemon
+                </h1>
+
+                <img id="pokemonImage"
+                    src=""
+                    alt="Pokemon">
+
+                <div id="pokemonTypes" class="types">
+
+                </div>
+
+            </div>
+
+            <div class="right">
+
+                <div class="tabs">
+
+                    <button class="tab-button active"
+                        onclick="openTab(event, 'about')">
+                        About
+                    </button>
+
+                    <button class="tab-button"
+                        onclick="openTab(event, 'stats')">
+                        Base Stats
+                    </button>
+
+                    <button class="tab-button"
+                        onclick="openTab(event, 'moves')">
+
+                        Moves
+                    </button>
+                    <button class="tab-button"
+                        onclick="openTab(event, 'evolution')">
+                        Evolution
+                    </button>
+
+                </div>
+
+                <div id="about" class="tab-content active">
+
+                    <div class="info-row">
+                        <span>Height</span>
+                        <strong id="height"></strong>
+                    </div>
+
+                    <div class="info-row">
+                        <span>Weight</span>
+                        <strong id="weight"></strong>
+                    </div>
+
+                    <div class="info-row">
+                        <span>Experience</span>
+                        <strong id="experience"></strong>
+                    </div>
+
+                </div>
+
+                <div id="stats" class="tab-content">
+
+                </div>
+
+                <div id="moves" class="tab-content">
+
+                </div>
+               
+                <div id="evolution" class="tab-content">
+
+                    <div id="evolutionContainer"
+                        class="evolution-container">
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <script src="./assets/js/details.js"></script>
+
+</body>
+
+</html>
